@@ -1,9 +1,14 @@
 package logica;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import java.util.Date;
 
 public class Horario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_horario;
     private Date hora_inicio;
     private Date hora_fin;
