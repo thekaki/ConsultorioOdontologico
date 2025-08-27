@@ -2,14 +2,14 @@
 <persistence version="3.2" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd">
   <persistence-unit name="ClinicaPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>logica.Persona</class>
-    <class>logica.Horario</class>
-    <class>logica.Odontologo</class>
-    <class>logica.Paciente</class>
-    <class>logica.Responsable</class>
-    <class>logica.Secretario</class>
-    <class>logica.Turno</class>
-    <class>logica.Usuario</class>
+    <class>model.Turno</class>
+    <class>model.Paciente</class>
+    <class>model.Persona</class>
+    <class>model.Horario</class>
+    <class>model.Responsable</class>
+    <class>model.Odontologo</class>
+    <class>model.Secretario</class>
+    <class>model.Usuario</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/clinicaOdontologica?serverTimezone=UTC"/>

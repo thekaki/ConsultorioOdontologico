@@ -1,13 +1,14 @@
-package logica;
+package model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Horario {
+public class Horario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,4 +1,4 @@
-package logica;
+package model;
 
 import jakarta.persistence.Entity;
 import java.util.Date;
