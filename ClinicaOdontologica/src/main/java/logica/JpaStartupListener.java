@@ -7,14 +7,15 @@ import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 
 @WebListener
-public class EMFBootstrap implements ServletContextListener {
+public class JpaStartupListener implements ServletContextListener {
 
-    private static EntityManagerFactory emf;
+    private EntityManagerFactory emf;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        // Llamada que inicializa EclipseLink y dispara la generación DDL
+        System.out.println("Inicializando JPA...");
         emf = Persistence.createEntityManagerFactory("ClinicaPU");
+        System.out.println("EntityManagerFactory creado: tablas deberían generarse");
     }
 
     @Override
@@ -22,12 +23,5 @@ public class EMFBootstrap implements ServletContextListener {
         if (emf != null && emf.isOpen()) {
             emf.close();
         }
-        // Cierre seguro del thread de MySQL (si usas mysql-connector)
-        com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkedShutdown(); // ignora o loggea
-    }
-
-    public static EntityManagerFactory getEmf() {
-        return emf;
     }
 }
-
