@@ -8,11 +8,12 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Persona {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Persona implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +23,7 @@ public class Persona {
     private String apellidos;
     private String telefono;
     private String direccion;
-    
+
     @Temporal(TemporalType.DATE)
     private Date fecha_nac;
 
@@ -36,6 +37,14 @@ public class Persona {
         this.telefono = telefono;
         this.direccion = direccion;
         this.fecha_nac = fecha_nac;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDni() {

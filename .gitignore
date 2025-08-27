@@ -25,3 +25,6 @@ replay_pid*
 /ClinicaOdontologica/target/
 ClinicaOdontologica/nb-configuration.xml
 /ClinicaOdontologica/target/
+ClinicaOdontologica/src/main/java/persistencia/exceptions/IllegalOrphanException.java
+ClinicaOdontologica/src/main/java/persistencia/exceptions/NonexistentEntityException.java
+ClinicaOdontologica/src/main/java/persistencia/exceptions/PreexistingEntityException.java
