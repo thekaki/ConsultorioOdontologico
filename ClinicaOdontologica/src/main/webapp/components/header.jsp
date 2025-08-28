@@ -1,3 +1,4 @@
+<%@page import="model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <head>
@@ -18,8 +19,17 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    
+
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
+
+<% HttpSession ses = request.getSession(false);
+    Usuario usuario = (Usuario) ses.getAttribute("usuario");
+    
+    if (usuario == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>

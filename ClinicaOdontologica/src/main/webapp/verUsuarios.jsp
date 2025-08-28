@@ -38,61 +38,56 @@
 
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
-                            <div class="card-header py-3">
+                            <div class="card-header py-3 d-flex justify-content-between align-items-center">
                                 <h6 class="m-0 font-weight-bold text-primary">Lista de todos los usuarios del sistema</h6>
+
+                                <!-- Botones de acción globales -->
+                                <div>
+                                    <form id="formAcciones" method="GET" style="display:inline-block; margin-right:5px;">
+                                        <input type="hidden" id="idSeleccionado" name="id" value="">
+                                        <button type="submit" formaction="SvEditarUsuarios" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-pencil-alt"></i> Editar
+                                        </button>
+                                    </form>
+                                    <form id="formAcciones" method="POST" style="display:inline-block; margin-right:5px;">
+                                        <input type="hidden" id="idSeleccionado" name="id" value="">
+                                        <button type="submit" formaction="SvEliminarUsuarios" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash-alt"></i> Eliminar
+                                        </button>
+                                    </form>
+
+                                </div>
                             </div>
+
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>Id</th>
                                                 <th>Nombre</th>
                                                 <th>Rol</th>
                                                 <th>Activo</th>
-                                                <th>Acción</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Nombre</th>
-                                                <th>Rol</th>
-                                                <th>Activo</th>
-                                                <th>Acción</th>
-                                            </tr>
-                                        </tfoot>
                                         <%
                                             List<Usuario> listaUsuarios = (List) request.getSession().getAttribute("listaUsuarios");
                                         %>
                                         <tbody>
                                             <% for (Usuario usu : listaUsuarios) {%>
-                                            <tr>
+                                            <tr class="fila-usuario" data-id="<%=usu.getId_usuario()%>">
                                                 <td><%=usu.getId_usuario()%></td>
                                                 <td><%=usu.getNombreUsuario()%></td>
                                                 <td><%=usu.getRol()%></td>
                                                 <td>True</td>
-                                                <td style="white-space: nowrap;">
-                                                    <form name="eliminar" action="SvEliminarUsuarios" method="POST" style="display:inline-block; margin-right:5px;">
-                                                        <button type="submit" class="btn btn-danger btn-sm">
-                                                            <i class="fas fa-trash-alt"></i> Eliminar
-                                                        </button>
-                                                        <input type="hidden" name="id" value="<%=usu.getId_usuario()%>">
-                                                    </form>
-                                                    <form name="editar" action="SvEditarUsuarios" method="GET" style="display:inline-block;">
-                                                        <button type="submit" class="btn btn-primary btn-sm">
-                                                            <i class="fas fa-pencil-alt"></i> Editar
-                                                        </button>
-                                                        <input type="hidden" name="id" value="<%=usu.getId_usuario()%>">
-                                                    </form>
-                                                </td>
                                             </tr>
-                                            <%}%>
+                                            <% }%>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
+
 
                     </div>
                     <!-- /.container-fluid -->
