@@ -2,14 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%@include file="components/header.jsp"%>   <!-- aquí va el <head> -->
+    <%-- head --%>
+    <jsp:include page="/components/header.jsp" />
 
     <body id="page-top">
 
         <!-- Page Wrapper -->
         <div id="wrapper">
 
-            <%@include file="components/sideBar.jsp"%>   <!-- sidebar -->
+            <%-- sidebar --%>
+            <jsp:include page="/components/sideBar.jsp" />
 
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
@@ -17,7 +19,8 @@
                 <!-- Main Content -->
                 <div id="content">
 
-                    <%@include file="components/topBar.jsp"%>   <!-- barra superior -->
+                    <%-- topbar --%>
+                    <jsp:include page="/components/topBar.jsp" />
 
                     <!-- Contenido dinámico -->
                     <div class="container-fluid">
@@ -54,43 +57,32 @@
                                     <input type="text" class=" form-control form-control-user" id="especialidad"
                                            placeholder="Especialidad">
                                 </div>
-                                
-                                <!<!-- Aqui añadiremos lo que respecta a horarios y usuarios -->
+
+                                <!-- Aqui añadiremos lo que respecta a horarios y usuarios -->
                             </div>
-                            <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                Registrar Odontólogo
-                            </a>
-                            <hr>
+                            <div class="col-sm-6 mb-3">
+                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                    Registrar Odontólogo
+                                </a>
+                            </div>
                         </form>
                     </div>
+                    <!-- /.container-fluid -->
+
                 </div>
+                <!-- End of Main Content -->
+
+                <%-- footer (incluye modal/scroll) --%>
+                <jsp:include page="/components/footer.jsp" />
+
             </div>
+            <!-- End of Content Wrapper -->
+
         </div>
-    </div>
+        <!-- End of Page Wrapper -->
 
-</div>
+        <%-- scripts JS (siempre al final del body) --%>
+        <jsp:include page="/components/scripts.jsp" />
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
-</div>
-<!-- End Main Content -->
-
-<%@include file="components/footer.jsp"%>   <!-- footer -->
-
-</div>
-<!-- End Content Wrapper -->
-
-</div>
-<!-- End Page Wrapper -->
-
-<%@include file="components/scripts.jsp"%>   <!-- scripts JS -->
-
-</body>
+    </body>
 </html>
