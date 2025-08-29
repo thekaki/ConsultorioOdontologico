@@ -28,3 +28,4 @@ ClinicaOdontologica/nb-configuration.xml
 ClinicaOdontologica/src/main/java/persistencia/exceptions/IllegalOrphanException.java
 ClinicaOdontologica/src/main/java/persistencia/exceptions/NonexistentEntityException.java
 ClinicaOdontologica/src/main/java/persistencia/exceptions/PreexistingEntityException.java
+ClinicaOdontologica/nbactions.xml
